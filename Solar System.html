@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Solar System</title>
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content:  center;
+            background-color: black ;
+            overflow: hidden;
+
+        }
+        .container{
+            font-size: 10px;
+            width: 40em;
+            height: 40em;
+            position: relative;
+        }
+        .sun{
+            position: absolute;
+            top: 15em;
+            left: 15em;
+            width: 10em;
+            height: 10em;
+            background-color: yellow;
+            border-radius: 50%;
+            box-shadow: 0 0 2em yellow;
+        }
+        .sun,.mercury{
+            position: absolute;
+            border-radius: solid;
+            border-color: white 
+            transparent 
+            transparent 
+            transparent;
+            border-width: 0.1em 0.1em 0.0;
+            border-radius: 50%;
+
+        }
+        .mercury{
+            top: -2em;
+            left: -2em;
+            width: 14em;
+            height: 14em;
+            animation: orbit 5s linear infinite;
+            box-shadow: 0 0 1px white;
+
+        }
+        .mercury::before{
+            top: 1.5em;
+            right:1.5em;
+            width: 1em;
+            height: 1em;
+            background-color: brown;           
+        }
+        .sun::before,
+        .mercury::before{
+            content:'';
+            position: absolute;
+            border-radius: 50%;
+        }
+        .sun, .venus{
+            position: absolute;
+            border-radius: solid;
+            border-color: white 
+            transparent 
+            transparent 
+            transparent;
+            border-width: 0.1em 0.1em 0.0;
+            border-radius: 50%;
+        }
+        .venus{
+            top: 10em;
+            left: 10em;
+            width: 20em;
+            height: 20em;
+            animation: orbit 9s linear infinite;
+            box-shadow: 0 0 1px white;
+        }
+        .sun::before,
+        .venus::before{
+            content:'';
+            position: absolute;
+            border-radius: 50%;
+        }
+        .venus::before{
+            top: 1em;
+            right: 4em;
+            width: 1em;
+            height: 1em;
+            background-color: orange;
+        }
+        .earth, .moon{
+            position: absolute;
+            border-radius: solid;
+            border-color: white 
+            transparent 
+            transparent 
+            transparent;
+            border-width: 0.1em 0.1em 0.0;
+            border-radius: 50%;
+        }
+        .earth{
+            top: 4em; 
+            left: 4em;
+            width: 32em;
+            height: 32em;
+            animation: orbit 15s linear infinite;
+            box-shadow: 0 0 1px white
+        }
+        .moon{
+            top: 0.75em;
+            right: 0.75em;
+            width: 7.3em;
+            height: 7.3em;
+            animation: orbit 2.2s linear infinite;
+            box-shadow: 0 0 1px white;
+        }
+
+        .earth::before,
+        .moon::before{
+            content:'';
+            position: absolute;
+            border-radius: 50%;
+        }
+        .earth::before{
+            top: 2.8em;
+            right: 2.8em;
+            width: 3em;
+            height: 3em;
+            background-color: aqua;
+        }
+        .moon::before{
+            top: 0.4em;
+            right: 0.4em;
+            width: 1.2em;
+            height: 1.2em;
+            background-color: silver;
+        }
+        .mars{
+            top: -2.5em;
+            left: -2.5em;
+            width: 45em;
+            height: 45em;
+            animation: orbit 21s linear infinite;
+            box-shadow: 0 0 1px white;
+        }
+        .sun,.mars{
+            position: absolute;
+            border-radius: solid;
+            border-color: white 
+            transparent 
+            transparent 
+            transparent;
+            border-width: 0.1em 0.1em 0.0;
+            border-radius: 50%;
+
+        }
+        .mars::before{
+            top: 10em;
+            right: 2em;
+            width: 2em;
+            height: 2em;
+            background-color: red;           
+        }
+        .sun::before,
+        .mars::before{
+            content:'';
+            position: absolute;
+            border-radius: 50%;
+        }
+        .jupiter{
+            top: -10em;
+            left: -10em;
+            width: 60em;
+            height: 60em;
+            animation: orbit 28s linear infinite;
+            box-shadow: 0 0 1px white;
+        }
+        .sun,.jupiter{
+            position: absolute;
+            border-radius: solid;
+            border-color: white 
+            transparent 
+            transparent 
+            transparent;
+            border-width: 0.1em 0.1em 0.0;
+            border-radius: 50%;
+
+        }
+        .jupiter::before{
+            top: 9em;
+            right: 1em;
+            width: 9em;
+            height: 9em;
+            background-color: rgb(175, 131, 74);           
+        }
+        .sun::before,
+        .jupiter::before{
+            content:'';
+            position: absolute;
+            border-radius: 50%;
+        }
+        .saturn{
+            top: -20em;
+            left: -20em;
+            width: 80em;
+            height: 80em;
+            animation: orbit 33s linear infinite;
+            box-shadow: 0 0 1px white;
+        }
+        .sun,.saturn{
+            position: absolute;
+            border-radius: solid;
+            border-color: white 
+            transparent 
+            transparent 
+            transparent;
+            border-width: 0.1em 0.1em 0.0;
+            border-radius: 50%;
+        }
+        .saturn::before{
+            top: 18em;
+            right: 2em;
+            width: 6em;
+            height: 6em;
+            background-color: rgb(107, 65, 65)    
+        }
+        .sun::before,
+        .saturn::before{
+            content:'';
+            position: absolute;
+            border-radius: 50%;
+        }
+        .saturn,.rings{
+            position: absolute;
+            border-radius: solid;
+            border-color: white 
+            transparent 
+            transparent 
+            transparent;
+            border-width: 0.1em 0.1em 0.0;
+            border-radius: 50%;
+        }
+        .saturn::before,
+        .rings::before{
+            content:'';
+            position: absolute;
+            border-radius: 50%;
+        }
+        .rings{
+            top: 17.5em;
+            right: 0.4em;
+            width: 9em;
+            height: 7.3em;
+            animation: orbit 6s linear infinite;
+            box-shadow: 0 2px 7px rgb(181, 115, 115);
+        }
+        .uranus{
+            top: -30em;
+            left: -30em;
+            width: 100em;
+            height: 100em;
+            animation: orbit 39s linear infinite;
+            box-shadow: 0 0 1px white;
+        }
+        .sun,.uranus{
+            position: absolute;
+            border-radius: solid;
+            border-color: white 
+            transparent 
+            transparent 
+            transparent;
+            border-width: 0.1em 0.1em 0.0;
+            border-radius: 50%;
+        }
+        .uranus::before{
+            top: 23em;
+            right: 4em;
+            width: 5em;
+            height: 5em;
+            background-color: rgb(11, 186, 239)    
+        }
+        .sun::before,
+        .uranus::before{
+            content:'';
+            position: absolute;
+            border-radius: 50%;
+        }
+        .neptune{
+            top: -40em;
+            left: -40em;
+            width: 120em;
+            height: 120em;
+            animation: orbit 45s linear infinite;
+            box-shadow: 0 0 1px white;
+        }
+        .sun,.neptune{
+            position: absolute;
+            border-radius: solid;
+            border-color: white 
+            transparent 
+            transparent 
+            transparent;
+            border-width: 0.1em 0.1em 0.0;
+            border-radius: 50%;
+        }
+        .neptune::before{
+            top: 26em;
+            right: 5em;
+            width: 7em;
+            height: 7em;
+            background-color: rgb(12, 135, 172)    
+        }
+        .sun::before,
+        .neptune::before{
+            content:'';
+            position: absolute;
+            border-radius: 50%;
+        }
+        .pluto{
+            top: -25em;
+            left: -60em;
+            width: 160em;
+            height: 90em;
+            animation: orbit 51s linear infinite;
+            box-shadow: 0 0 1px white;
+        }
+        .sun,.pluto{
+            position: absolute;
+            border-radius: solid;
+            border-color: white 
+            transparent 
+            transparent 
+            transparent;
+            border-width: 0.1em 0.1em 0.0;
+            border-radius: 50%;
+        }
+        .pluto::before{
+            top: 24em;
+            right: 5em;
+            width: 5em;
+            height: 5em;
+            background-color: rgb(213, 125, 102)   
+        }
+        .sun::before,
+        .pluto::before{
+            content:'';
+            position: absolute;
+            border-radius: 50%;
+        }
+        @keyframes orbit{
+            to{
+            transform: rotate(360deg);
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sun">
+            <div class="mercury"></div>
+        </div>
+        
+        <div class="venus"></div>
+        <div class="earth">
+            <div class="moon"></div>
+        </div>
+        <div class="mars"></div>
+        <div class="jupiter"></div>
+        <div class="saturn">
+            <div class="rings"></div>
+        </div>
+        <div class="uranus"></div>
+        <div class="neptune"></div>
+        <div class="pluto"></div>
+
+
+    </div>
+</body>
+</html>
